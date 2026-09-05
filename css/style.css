@@ -6,16 +6,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
 
 :root {
-  --noir: #3b1f52;
-  --noir-doux: #4c2a66;
-  --noir-carte: #5a3777;
+  --noir: #6b3fa0;
+  --noir-doux: #8b5fc4;
+  --noir-carte: #9b6fd4;
   --or: #c9a15c;
   --or-clair: #e6c98a;
   --or-vif: #d4af37;
-  --ivoire: #fdfbfe;
-  --ivoire-doux: #f1e6f7;
-  --taupe: #c9aeda;
-  --ombre: rgba(59, 31, 82, 0.28);
+  --ivoire: #ffffff;
+  --ivoire-doux: #f3e9fb;
+  --taupe: #ddc6f0;
+  --gris-violet: #7a5f92;
+  --ombre: rgba(107, 63, 160, 0.22);
 
   --police-titre: 'Playfair Display', serif;
   --police-corps: 'Cormorant Garamond', serif;
@@ -137,9 +138,9 @@ section { padding: 96px 0; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(59, 31, 82, 0.94);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(201,161,92,0.18);
+  border-bottom: 1px solid rgba(107,63,160,0.14);
 }
 .nav {
   display: flex;
@@ -153,7 +154,7 @@ section { padding: 96px 0; }
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--ivoire);
+  color: var(--noir);
 }
 .logo svg { width: 34px; height: 34px; flex-shrink: 0; }
 .logo-img { height: 54px; width: auto; border-radius: 6px; flex-shrink: 0; }
@@ -186,7 +187,7 @@ section { padding: 96px 0; }
   font-size: 12.5px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ivoire-doux);
+  color: var(--noir);
   padding: 6px 0;
   border-bottom: 1px solid transparent;
   transition: var(--transition);
@@ -200,7 +201,7 @@ section { padding: 96px 0; }
   position: relative;
   display: flex;
   align-items: center;
-  color: var(--ivoire);
+  color: var(--noir);
 }
 .cart-link svg { width: 23px; height: 23px; }
 .cart-badge {
@@ -225,7 +226,7 @@ section { padding: 96px 0; }
   display: none;
   background: none;
   border: none;
-  color: var(--ivoire);
+  color: var(--noir);
   cursor: pointer;
   padding: 4px;
 }
@@ -287,7 +288,7 @@ section { padding: 96px 0; }
 /* ---------- Bandeau confiance ---------- */
 .trust-bar {
   background: var(--ivoire-doux);
-  border-bottom: 1px solid rgba(16,12,10,0.06);
+  border-bottom: 1px solid rgba(107,63,160,0.06);
   padding: 26px 0;
 }
 .trust-bar .container {
@@ -325,7 +326,7 @@ section { padding: 96px 0; }
   border-radius: var(--rayon);
   background:
     radial-gradient(circle at 30% 25%, rgba(230,201,138,0.35), transparent 55%),
-    linear-gradient(160deg, #4c2a66, #2e1840 75%);
+    linear-gradient(160deg, var(--noir-doux), var(--noir) 75%);
   border: 1px solid rgba(201,161,92,0.25);
   display: flex;
   align-items: center;
@@ -341,7 +342,7 @@ section { padding: 96px 0; }
   border: 1px solid rgba(201,161,92,0.35);
 }
 .about-text h2 { font-size: clamp(26px, 3vw, 38px); }
-.about-text p { color: #4a4034; font-size: 20px; }
+.about-text p { color: var(--ivoire-doux); font-size: 20px; }
 .signature {
   font-family: var(--police-titre);
   font-style: italic;
@@ -358,14 +359,14 @@ section { padding: 96px 0; }
 }
 .carte-produit {
   background: var(--ivoire);
-  border: 1px solid rgba(16,12,10,0.08);
+  border: 1px solid rgba(107,63,160,0.08);
   border-radius: var(--rayon);
   overflow: hidden;
   transition: var(--transition);
   display: flex;
   flex-direction: column;
 }
-.carte-produit:hover { transform: translateY(-6px); box-shadow: 0 24px 40px -22px rgba(16,12,10,0.35); }
+.carte-produit:hover { transform: translateY(-6px); box-shadow: 0 24px 40px -22px rgba(107,63,160,0.35); }
 .produit-visuel {
   aspect-ratio: 1/1;
   background: linear-gradient(155deg, var(--noir-doux), var(--noir));
@@ -408,7 +409,7 @@ section { padding: 96px 0; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 10px 22px;
-  border: 1px solid rgba(16,12,10,0.18);
+  border: 1px solid rgba(107,63,160,0.18);
   border-radius: 30px;
   background: transparent;
   cursor: pointer;
@@ -420,7 +421,7 @@ section { padding: 96px 0; }
 
 /* ---------- Bandeau CTA ---------- */
 .cta-band {
-  background: linear-gradient(135deg, #2e1840, var(--noir));
+  background: linear-gradient(135deg, var(--noir-doux), var(--noir));
   color: var(--ivoire);
   text-align: center;
   padding: 90px 0;
@@ -432,14 +433,14 @@ section { padding: 96px 0; }
 .temoignages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .temoignage {
   background: var(--ivoire);
-  border: 1px solid rgba(16,12,10,0.08);
+  border: 1px solid rgba(107,63,160,0.08);
   padding: 34px 30px;
   border-radius: var(--rayon);
   text-align: center;
 }
 .temoignage .etoiles { color: var(--or-vif); margin-bottom: 14px; letter-spacing: 3px; }
 .temoignage p { font-size: 20px; font-style: italic; color: #3d352b; }
-.temoignage .auteur { font-family: var(--police-ui); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--taupe); margin-top: 16px; }
+.temoignage .auteur { font-family: var(--police-ui); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gris-violet); margin-top: 16px; }
 
 /* ---------- Page héros secondaire ---------- */
 .page-hero {
@@ -464,7 +465,7 @@ section { padding: 96px 0; }
 /* ---------- Formulaires ---------- */
 .form-panel {
   background: var(--ivoire);
-  border: 1px solid rgba(16,12,10,0.08);
+  border: 1px solid rgba(107,63,160,0.08);
   border-radius: var(--rayon);
   padding: 46px;
 }
@@ -489,7 +490,7 @@ section { padding: 96px 0; }
   font-family: var(--police-corps);
   font-size: 18px;
   padding: 13px 16px;
-  border: 1px solid rgba(16,12,10,0.18);
+  border: 1px solid rgba(107,63,160,0.18);
   border-radius: var(--rayon);
   background: #fff;
   color: var(--noir);
@@ -508,7 +509,7 @@ section { padding: 96px 0; }
 .champ-radio {
   flex: 1;
   min-width: 140px;
-  border: 1px solid rgba(16,12,10,0.18);
+  border: 1px solid rgba(107,63,160,0.18);
   border-radius: var(--rayon);
   padding: 14px 16px;
   cursor: pointer;
@@ -551,13 +552,13 @@ section { padding: 96px 0; }
 .onglet-panel.active { display: block; }
 
 /* ---------- Panier ---------- */
-.panier-liste { border-top: 1px solid rgba(16,12,10,0.1); }
+.panier-liste { border-top: 1px solid rgba(107,63,160,0.1); }
 .panier-item {
   display: flex;
   align-items: center;
   gap: 18px;
   padding: 20px 0;
-  border-bottom: 1px solid rgba(16,12,10,0.1);
+  border-bottom: 1px solid rgba(107,63,160,0.1);
 }
 .panier-item-icone {
   width: 58px; height: 58px; border-radius: var(--rayon);
@@ -570,7 +571,7 @@ section { padding: 96px 0; }
 .panier-item-info span { color: #8a7d6c; font-family: var(--police-ui); font-size: 12.5px; }
 .panier-qte { display: flex; align-items: center; gap: 10px; }
 .panier-qte button {
-  width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(16,12,10,0.2);
+  width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(107,63,160,0.2);
   background: #fff; cursor: pointer; font-size: 16px; line-height: 1;
   display: flex; align-items: center; justify-content: center;
 }
@@ -639,25 +640,25 @@ section { padding: 96px 0; }
 .msg-succes.visible { display: block; }
 
 /* ---------- Footer ---------- */
-.site-footer { background: var(--noir); color: var(--ivoire-doux); padding: 80px 0 28px; }
+.site-footer { background: var(--ivoire-doux); color: var(--noir); padding: 80px 0 28px; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 48px; margin-bottom: 60px; }
 .footer-brand .logo { margin-bottom: 18px; }
-.footer-brand p { color: var(--taupe); font-size: 17px; max-width: 300px; }
-.footer-col h5 { font-family: var(--police-ui); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--or); margin-bottom: 20px; }
+.footer-brand p { color: var(--gris-violet); font-size: 17px; max-width: 300px; }
+.footer-col h5 { font-family: var(--police-ui); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--or-vif); margin-bottom: 20px; }
 .footer-col ul { list-style: none; margin: 0; padding: 0; }
 .footer-col li { margin-bottom: 12px; }
-.footer-col a { color: var(--ivoire-doux); font-size: 17px; transition: var(--transition); }
-.footer-col a:hover { color: var(--or-clair); }
+.footer-col a { color: var(--noir); font-size: 17px; transition: var(--transition); }
+.footer-col a:hover { color: var(--or-vif); }
 .footer-social { display: flex; gap: 12px; margin-top: 20px; }
 .footer-social a {
-  width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(201,161,92,0.35);
+  width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(107,63,160,0.35);
   display: flex; align-items: center; justify-content: center; transition: var(--transition);
 }
 .footer-social a:hover { background: var(--or-vif); border-color: var(--or-vif); }
-.footer-social a:hover svg { color: var(--noir); }
-.footer-social svg { width: 16px; height: 16px; color: var(--or-clair); }
+.footer-social a:hover svg { color: var(--ivoire); }
+.footer-social svg { width: 16px; height: 16px; color: var(--noir); }
 .footer-bottom {
-  border-top: 1px solid rgba(201,161,92,0.15);
+  border-top: 1px solid rgba(107,63,160,0.18);
   padding-top: 26px;
   display: flex;
   justify-content: space-between;
@@ -665,7 +666,7 @@ section { padding: 96px 0; }
   gap: 10px;
   font-family: var(--police-ui);
   font-size: 12px;
-  color: var(--taupe);
+  color: var(--gris-violet);
   letter-spacing: 0.04em;
 }
 
@@ -677,7 +678,7 @@ section { padding: 96px 0; }
 }
 
 @media (max-width: 760px) {
-  .nav-links { position: fixed; top: 74px; left: 0; right: 0; background: var(--noir); flex-direction: column; padding: 24px 32px; gap: 22px; border-bottom: 1px solid rgba(201,161,92,0.18); transform: translateY(-130%); transition: var(--transition); }
+  .nav-links { position: fixed; top: 74px; left: 0; right: 0; background: var(--ivoire); flex-direction: column; padding: 24px 32px; gap: 22px; border-bottom: 1px solid rgba(107,63,160,0.14); box-shadow: 0 16px 30px -18px rgba(107,63,160,0.35); transform: translateY(-130%); transition: var(--transition); }
   .nav-links.open { transform: translateY(0); }
   .nav-toggle { display: block; }
   .ligne-champs { grid-template-columns: 1fr; }

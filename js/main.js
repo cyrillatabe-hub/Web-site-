@@ -100,7 +100,7 @@
     if (!toast) {
       toast = document.createElement("div");
       toast.id = "toast-ajout";
-      toast.style.cssText = "position:fixed;bottom:26px;right:26px;background:#3b1f52;color:#fdfbfe;padding:16px 22px;border:1px solid rgba(201,161,92,0.4);border-radius:2px;font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:0.04em;z-index:999;opacity:0;transition:opacity .35s ease, transform .35s ease;transform:translateY(10px);";
+      toast.style.cssText = "position:fixed;bottom:26px;right:26px;background:#6b3fa0;color:#ffffff;padding:16px 22px;border:1px solid rgba(201,161,92,0.4);border-radius:2px;font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:0.04em;z-index:999;opacity:0;transition:opacity .35s ease, transform .35s ease;transform:translateY(10px);";
       document.body.appendChild(toast);
     }
     toast.textContent = "✓ " + nom + " ajouté à votre commande";
@@ -161,7 +161,7 @@
     const panier = lirePanier();
 
     if (!panier.length) {
-      conteneur.innerHTML = `<div class="panier-vide">${ICONE_PANIER_VIDE}<p>Votre sélection de pâtisserie est vide.</p><a href="menu.html" class="btn btn-outline btn-sm" style="color:#100c0a;border-color:rgba(16,12,10,0.3);">Découvrir la carte</a></div>`;
+      conteneur.innerHTML = `<div class="panier-vide">${ICONE_PANIER_VIDE}<p>Votre sélection de pâtisserie est vide.</p><a href="menu.html" class="btn btn-outline btn-sm" style="color:#6b3fa0;border-color:rgba(107,63,160,0.35);">Découvrir la carte</a></div>`;
     } else {
       conteneur.innerHTML = panier.map((item) => `
         <div class="panier-item">
