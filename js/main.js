@@ -249,6 +249,25 @@
     });
   }
 
+  /* ---------------- Choix de la saveur : signature ou personnalisée ---------------- */
+  function initModeSaveur() {
+    const radios = document.querySelectorAll("input[name='mode_saveur']");
+    const blocSignature = document.getElementById("bloc-saveur-signature");
+    const blocPerso = document.getElementById("bloc-saveur-personnalisee");
+    if (!radios.length || !blocSignature || !blocPerso) return;
+
+    const maj = () => {
+      const coche = document.querySelector("input[name='mode_saveur']:checked");
+      const estSignature = !coche || coche.value === "Menu signature";
+      blocSignature.style.display = estSignature ? "" : "none";
+      blocPerso.style.display = estSignature ? "none" : "";
+      blocSignature.querySelectorAll("select").forEach((s) => (s.disabled = !estSignature));
+      blocPerso.querySelectorAll("select").forEach((s) => (s.disabled = estSignature));
+    };
+    radios.forEach((r) => r.addEventListener("change", maj));
+    maj();
+  }
+
   /* ---------------- Formulaire de commande : récapitulatif caché ---------------- */
   function initFormulaireCommande() {
     const form = document.getElementById("form-commande");
@@ -265,9 +284,24 @@
         });
         recap += `Total pâtisserie : ${totalPanier().toFixed(2)} €\n\n`;
       }
+
+      const modeSaveur = document.querySelector("input[name='mode_saveur']:checked");
+      if (modeSaveur) {
+        if (modeSaveur.value === "Menu signature") {
+          const sel = document.querySelector("select[name='saveur_signature']");
+          if (sel) recap += "Saveur (menu signature) :\n" + sel.value + "\n\n";
+        } else {
+          const gateau = document.querySelector("select[name='saveur_gateau_personnalise']");
+          const garniture = document.querySelector("select[name='saveur_garniture_personnalisee']");
+          if (gateau && garniture) {
+            recap += `Saveur personnalisée :\nGâteau ${gateau.value} + ${garniture.value}\n\n`;
+          }
+        }
+      }
+
       const design = document.getElementById("design-description");
       if (design && design.value.trim()) {
-        recap += "Précommande sur mesure :\n" + design.value.trim();
+        recap += "Précisions sur le design :\n" + design.value.trim();
       }
       if (champRecap) champRecap.value = recap || "Aucun article sélectionné.";
       try { localStorage.removeItem(CLE_PANIER); } catch (e) {}
@@ -356,6 +390,7 @@
     initFiltres();
     initOnglets();
     initRadiosStylises();
+    initModeSaveur();
     initFormulaireCommande();
     initHeaderScroll();
     initRetourHaut();

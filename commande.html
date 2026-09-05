@@ -95,8 +95,66 @@
               </div>
 
               <div class="champ">
+                <label>Comment choisir la saveur ?</label>
+                <div class="champ-radio-group">
+                  <label class="champ-radio"><input type="radio" name="mode_saveur" value="Menu signature" checked> Parmi nos saveurs signature</label>
+                  <label class="champ-radio"><input type="radio" name="mode_saveur" value="Saveur personnalisée"> Créer ma propre saveur</label>
+                </div>
+              </div>
+
+              <div class="champ" id="bloc-saveur-signature">
+                <label>Saveur signature</label>
+                <select name="saveur_signature">
+                  <option value="Classic Crunch Vanille — génoise vanille, ganache vanille, feuilletine, purée de fruits rouges (en option)">Classic Crunch Vanille — vanille, ganache vanille, feuilletine, fruits rouges (en option)</option>
+                  <option value="Classic Choco Caramel — génoise chocolat, ganache chocolat au lait, sauce caramel">Classic Choco Caramel — chocolat, ganache chocolat au lait, sauce caramel</option>
+                  <option value="Choco Dulce de Leche Crunch-Amande — génoise chocolat, ganache dulce de leche, croustillant d'amande">Choco Dulce de Leche Crunch-Amande — chocolat, dulce de leche, croustillant d'amande</option>
+                  <option value="Cheesecake — génoise red velvet, ganache vanille cream cheese, purée de fraise et fruits rouges">Cheesecake — red velvet, cream cheese vanille, fraise et fruits rouges</option>
+                  <option value="Golden Bloom — génoise vanille citron vert, ganache citron, purée de fruits rouges">Golden Bloom — vanille citron vert, ganache citron, fruits rouges</option>
+                  <option value="Choco-Noisette — génoise chocolat, ganache noisette et croustillant noisette">Choco-Noisette — chocolat, ganache noisette et croustillant</option>
+                  <option value="Piña Colada — génoise vanille, ganache piña colada, noix de coco râpée">Piña Colada — vanille, ganache piña colada, coco râpée</option>
+                  <option value="Choco-Oréo — génoise chocolat, ganache oréo">Choco-Oréo — chocolat, ganache oréo</option>
+                </select>
+              </div>
+
+              <div class="champ" id="bloc-saveur-personnalisee" style="display:none;">
+                <div class="ligne-champs">
+                  <div class="champ" style="margin-bottom:0;">
+                    <label>Saveur du gâteau</label>
+                    <select name="saveur_gateau_personnalise" disabled>
+                      <option>Vanille</option>
+                      <option>Chocolat</option>
+                      <option>Amande vanille</option>
+                      <option>Amande orange</option>
+                      <option>Citron bleuet</option>
+                      <option>Red velvet</option>
+                      <option>Mojito</option>
+                      <option>Vanille lime</option>
+                    </select>
+                  </div>
+                  <div class="champ" style="margin-bottom:0;">
+                    <label>Fourrage / ganache</label>
+                    <select name="saveur_garniture_personnalisee" disabled>
+                      <option>Ganache vanille</option>
+                      <option>Mascarpone chantilly</option>
+                      <option>Ganache oréo</option>
+                      <option>Ganache dulce de leche</option>
+                      <option>Ganache citron</option>
+                      <option>Ganache chocolat au lait</option>
+                      <option>Ganache chocolat noir</option>
+                      <option>Ganache matcha</option>
+                      <option>Ganache cream cheese</option>
+                      <option>Ganache piña colada</option>
+                      <option>Ganache coco</option>
+                      <option>Ganache fraise</option>
+                      <option>Ganache café</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="champ">
                 <label>Décrivez le design souhaité</label>
-                <textarea id="design-description" name="description_design" placeholder="Style, couleurs, saveurs, inspirations, allergies à prendre en compte…"></textarea>
+                <textarea id="design-description" name="description_design" placeholder="Style, couleurs, inspirations, allergies à prendre en compte…"></textarea>
               </div>
             </div>
           </div>
@@ -169,23 +227,23 @@
 
       <aside>
         <div class="info-laterale reveal reveal--droite">
-          <h4>Informations utiles</h4>
+          <h4>Informations à lire avant de commander</h4>
           <ul>
             <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-              Précommande sur mesure : délai minimum de 5 jours avant la date souhaitée.
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg>
+              Gâteaux à partir de 120 $ (12 parts) — 90 $ pour 10 parts.
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6z"/><path d="M4 6l8-3 8 3"/></svg>
-              Pâtisserie de la carte : disponible sous 48h, en retrait ou en livraison.
+              Cupcakes à partir de 50 $ la douzaine.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              Commande à passer minimum 1 semaine à l'avance — 2 à 3 semaines (voire 1 mois) pour un mariage ou un événement.
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              Un membre de notre équipe vous recontacte sous 24h pour confirmer les détails.
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg>
-              Paiement sécurisé demandé uniquement à la confirmation finale.
+              Un acompte de 50 % est requis pour confirmer la commande ; le solde est à régler 2 jours avant le retrait ou la livraison.
             </li>
           </ul>
           <a href="contact.html" class="btn btn-outline btn-full">Une question ? Contactez-nous</a>
