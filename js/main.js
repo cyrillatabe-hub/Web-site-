@@ -87,12 +87,19 @@
     return lirePanier().reduce((n, item) => n + item.qte, 0);
   }
 
+  let dernierNombrePanier = null;
   function majBadgePanier() {
+    const n = nombreArticlesPanier();
     document.querySelectorAll("[data-cart-badge]").forEach((badge) => {
-      const n = nombreArticlesPanier();
       badge.textContent = n;
       badge.style.display = n > 0 ? "flex" : "none";
+      if (dernierNombrePanier !== null && n !== dernierNombrePanier) {
+        badge.classList.remove("bump");
+        void badge.offsetWidth;
+        badge.classList.add("bump");
+      }
     });
+    dernierNombrePanier = n;
   }
 
   function afficherConfirmationAjout(nom) {
@@ -139,6 +146,22 @@
 
     grille.querySelectorAll("[data-ajouter]").forEach((btn) => {
       btn.addEventListener("click", () => ajouterAuPanier(btn.getAttribute("data-ajouter")));
+    });
+
+    animerEntreeCartes(grille);
+  }
+
+  function animerEntreeCartes(conteneur) {
+    const cartes = conteneur.querySelectorAll(".carte-produit");
+    cartes.forEach((carte, i) => {
+      carte.classList.add("reveal");
+      carte.classList.remove("reveal-in");
+      carte.style.transitionDelay = (i % 6) * 55 + "ms";
+    });
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        cartes.forEach((carte) => carte.classList.add("reveal-in"));
+      });
     });
   }
 
@@ -256,6 +279,77 @@
     document.querySelectorAll("[data-annee]").forEach((el) => (el.textContent = new Date().getFullYear()));
   }
 
+  /* ---------------- Révélation au défilement ---------------- */
+  function initReveal() {
+    const elements = document.querySelectorAll(".reveal:not([data-reveal-pret])");
+    if (!elements.length) return;
+    if (!("IntersectionObserver" in window)) {
+      elements.forEach((el) => el.classList.add("reveal-in"));
+      return;
+    }
+    const observateur = new IntersectionObserver(
+      (entrees) => {
+        entrees.forEach((entree) => {
+          if (entree.isIntersecting) {
+            entree.target.classList.add("reveal-in");
+            observateur.unobserve(entree.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+    );
+    elements.forEach((el) => {
+      el.dataset.revealPret = "true";
+      observateur.observe(el);
+    });
+
+    // Filet de sécurité : révèle aussi tout élément déjà dans la fenêtre visible
+    // (défilements très rapides, ancre d'URL, restauration de position...).
+    let verifierPlanifie = false;
+    const verifierVisibles = () => {
+      verifierPlanifie = false;
+      document.querySelectorAll(".reveal:not(.reveal-in)").forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+          el.classList.add("reveal-in");
+          observateur.unobserve(el);
+        }
+      });
+    };
+    const planifierVerification = () => {
+      if (verifierPlanifie) return;
+      verifierPlanifie = true;
+      requestAnimationFrame(verifierVisibles);
+    };
+    window.addEventListener("scroll", planifierVerification, { passive: true });
+    window.addEventListener("resize", planifierVerification, { passive: true });
+    planifierVerification();
+  }
+
+  /* ---------------- En-tête qui se contracte au défilement ---------------- */
+  function initHeaderScroll() {
+    const header = document.querySelector(".site-header");
+    if (!header) return;
+    const maj = () => header.classList.toggle("au-scroll", window.scrollY > 30);
+    maj();
+    window.addEventListener("scroll", maj, { passive: true });
+  }
+
+  /* ---------------- Bouton retour en haut ---------------- */
+  function initRetourHaut() {
+    const bouton = document.createElement("button");
+    bouton.type = "button";
+    bouton.className = "retour-haut";
+    bouton.setAttribute("aria-label", "Retour en haut de la page");
+    bouton.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+    document.body.appendChild(bouton);
+
+    const maj = () => bouton.classList.toggle("visible", window.scrollY > 480);
+    maj();
+    window.addEventListener("scroll", maj, { passive: true });
+    bouton.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     majBadgePanier();
     initNavMobile();
@@ -263,8 +357,11 @@
     initOnglets();
     initRadiosStylises();
     initFormulaireCommande();
+    initHeaderScroll();
+    initRetourHaut();
     majAnnee();
     if (document.getElementById("grille-produits")) rendreProduits("tous");
     if (document.getElementById("panier-liste")) rendrePanier();
+    initReveal();
   });
 })();

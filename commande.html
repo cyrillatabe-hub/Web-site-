@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add("js");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Commander — Billion's Cakes Bakery</title>
 <meta name="description" content="Commandez en ligne chez Billion's Cakes Bakery : précommande de gâteaux sur mesure et sélection de pâtisserie fine.">
@@ -62,7 +63,7 @@
 
           <!-- ===== Onglet 1 : précommande sur mesure ===== -->
           <div id="precommande" class="onglet-panel active">
-            <div class="form-panel">
+            <div class="form-panel reveal">
               <h3>Votre création sur mesure</h3>
               <p class="form-note">Décrivez votre projet : nous reviendrons vers vous avec une proposition et un devis personnalisé.</p>
 
@@ -102,7 +103,7 @@
 
           <!-- ===== Onglet 2 : panier pâtisserie ===== -->
           <div id="panier" class="onglet-panel">
-            <div class="form-panel">
+            <div class="form-panel reveal">
               <h3>Ma sélection de pâtisserie</h3>
               <p class="form-note">Retrouvez ici les articles ajoutés depuis <a href="menu.html" style="color:var(--or-vif);">la carte</a>.</p>
               <div class="panier-liste" id="panier-liste"></div>
@@ -114,7 +115,7 @@
           </div>
 
           <!-- ===== Coordonnées (communes aux deux onglets) ===== -->
-          <div class="form-panel" style="margin-top:32px;">
+          <div class="form-panel reveal" style="margin-top:32px;">
             <h3>Vos coordonnées</h3>
             <p class="form-note">Ces informations nous permettent de confirmer votre commande.</p>
 
@@ -167,7 +168,7 @@
       </div>
 
       <aside>
-        <div class="info-laterale">
+        <div class="info-laterale reveal reveal--droite">
           <h4>Informations utiles</h4>
           <ul>
             <li>
