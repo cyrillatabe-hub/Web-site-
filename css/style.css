@@ -6,16 +6,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
 
 :root {
-  --noir: #100c0a;
-  --noir-doux: #1a1512;
-  --noir-carte: #201a16;
+  --noir: #3b1f52;
+  --noir-doux: #4c2a66;
+  --noir-carte: #5a3777;
   --or: #c9a15c;
   --or-clair: #e6c98a;
   --or-vif: #d4af37;
-  --ivoire: #faf6ee;
-  --ivoire-doux: #f2ead9;
-  --taupe: #9c8f80;
-  --ombre: rgba(0, 0, 0, 0.35);
+  --ivoire: #fdfbfe;
+  --ivoire-doux: #f1e6f7;
+  --taupe: #c9aeda;
+  --ombre: rgba(59, 31, 82, 0.28);
 
   --police-titre: 'Playfair Display', serif;
   --police-corps: 'Cormorant Garamond', serif;
@@ -116,10 +116,10 @@ section { padding: 96px 0; }
 
 .btn-outline {
   background: transparent;
-  border-color: rgba(250,246,238,0.55);
+  border-color: rgba(253,251,254,0.55);
   color: var(--ivoire);
 }
-.btn-outline:hover { background: rgba(250,246,238,0.1); border-color: var(--ivoire); }
+.btn-outline:hover { background: rgba(253,251,254,0.12); border-color: var(--ivoire); }
 
 .btn-noir {
   background: var(--noir);
@@ -137,7 +137,7 @@ section { padding: 96px 0; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(16, 12, 10, 0.92);
+  background: rgba(59, 31, 82, 0.94);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(201,161,92,0.18);
 }
@@ -156,6 +156,8 @@ section { padding: 96px 0; }
   color: var(--ivoire);
 }
 .logo svg { width: 34px; height: 34px; flex-shrink: 0; }
+.logo-img { height: 54px; width: auto; border-radius: 6px; flex-shrink: 0; }
+.footer-brand .logo-img { height: 62px; }
 .logo-text {
   font-family: var(--police-titre);
   font-size: 21px;
@@ -323,7 +325,7 @@ section { padding: 96px 0; }
   border-radius: var(--rayon);
   background:
     radial-gradient(circle at 30% 25%, rgba(230,201,138,0.35), transparent 55%),
-    linear-gradient(160deg, #2a221b, #100c0a 75%);
+    linear-gradient(160deg, #4c2a66, #2e1840 75%);
   border: 1px solid rgba(201,161,92,0.25);
   display: flex;
   align-items: center;
@@ -418,7 +420,7 @@ section { padding: 96px 0; }
 
 /* ---------- Bandeau CTA ---------- */
 .cta-band {
-  background: linear-gradient(135deg, #241d16, var(--noir));
+  background: linear-gradient(135deg, #2e1840, var(--noir));
   color: var(--ivoire);
   text-align: center;
   padding: 90px 0;
